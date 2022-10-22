@@ -4,10 +4,22 @@ from algorithm import *
 from gh import * 
 import genghao_lightning as gl 
 
-HG = pickle_load('/Dataset/Pickle/ACM_TransE.dglhg.pkl')
+# HG = pickle_load('/Dataset/Pickle/ACM_TransE.dglhg.pkl')
+# METAPATH_LIST = [
+#     ['pa', 'ap'],
+#     ['pf', 'fp'], 
+# ]
+
+# HG = pickle_load('/Dataset/Pickle/IMDB.dglhg.pkl')
+# METAPATH_LIST = [
+#     ['md', 'dm'],
+#     ['ma', 'am'], 
+# ]
+
+HG = pickle_load('/Dataset/Pickle/DBLP.dglhg.pkl')
 METAPATH_LIST = [
-    ['pa', 'ap'],
-    ['pf', 'fp'], 
+    ['ap', 'pt', 'tp', 'pa'],
+    ['ap', 'pc', 'cp', 'pa'],
 ]
 
 HYPER_PARAM = dict(
