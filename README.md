@@ -20,6 +20,40 @@
 
 其中，$p_{i, ..., j}$表示元路径$P$的一个实例，从结点$i$到结点$j$。
 
+为了简化这步操作，采用==邻接矩阵的累乘==来计算semantic feature matrices。具体地，记$X_c$为结点类型为$c$的所有结点的原始特征构成的矩阵，$\hat{A}_{c, c_1}$表示从结点类型$c$到结点类型$c_1$的==邻接矩阵的row-normalized==形式，则==简化后的邻居聚合==过程为：
+
+<img src="./img/image-20221022154649736.png" alt="image-20221022154649736" style="zoom:50%;" />
+
+其中，$P = c c_1 c_2 ... c_l$是一条长度为$l+1$的元路径。
+
+### 第二部分：Multi-layer Feature Projection
+
+不同的元路径采用不同的矩阵变换：
+
+<img src="./img/image-20221022161336162.png" alt="image-20221022161336162" style="zoom:50%;" />
+
+### 第三部分：Transformer-based Semantic Aggregation
+
+通过上述步骤，假设有$K$条元路径，为每个结点生成$K$个表征$\{ h'^{P_1}, ..., h'^{P_K} \}$。然后通过Transformer聚合这$K$个表征：
+
+<img src="./img/image-20221022161834776.png" alt="image-20221022161834776" style="zoom:50%;" />
+
+<img src="./img/image-20221022161853194.png" alt="image-20221022161853194" style="zoom:50%;" />
+
+### 其他训练技巧
+
+#### Metapath-based label propagation
+
+将结点标签信息纳入邻居聚合过程。
+
+#### General metapath selection
+
+预先定义元路径的最大长度，然后选取范围内的所有元路径。
+
+#### Multi-stage training
+
+TODO
+
 # 论文复现
 
 TODO
