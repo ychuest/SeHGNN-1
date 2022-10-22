@@ -40,6 +40,8 @@
 
 <img src="./img/image-20221022161853194.png" alt="image-20221022161853194" style="zoom:50%;" />
 
+其中，$W_Q, W_K, W_V, \beta$都是可学习的参数，且所有元路径共享。
+
 ### 其他训练技巧
 
 #### Metapath-based label propagation
@@ -56,4 +58,14 @@ TODO
 
 # 论文复现
 
-TODO
+## SeHGNN-v0
+
+按照论文复现，实现了第一部分：Simplified Neighbor Aggregation、第二部分：Multi-layer Feature Projection、第三部分：Transformer-based Semantic Aggregation。
+
+在ACM、DBLP、IMDB数据集上的实验效果如下：
+
+| 方法\数据集 | ACM            | DBLP           | IMDB           |
+| ----------- | -------------- | -------------- | -------------- |
+| SeHGNN-论文 |                |                |                |
+| SeHGNN-v0   | 0.9177, 0.9073 | 0.9500, 0.9398 | 0.5975, 0.5704 |
+
